@@ -9,7 +9,22 @@ function generateTaskId() {
 
 // Todo: create a function to create a task card
 function createTaskCard(task) {
-
+    const div = jQuery('<div>', {
+        id: task.id,
+        class: 'card-body',
+        title: task.title
+    });
+    jQuery('<h3>', {
+        html: task.title
+    }).appendTo(div);
+    jQuery('<p>', {
+        html: task.description
+    }).appendTo(div);
+    jQuery('<p>', {
+        html: "Deadline: " + task.deadline
+    }).appendTo(div);
+    div.appendTo("#" + task.state + "-cards");
+    
 }
 
 // Todo: create a function to render the task list and make cards draggable
@@ -53,6 +68,8 @@ function handleDrop(event, ui) {
 $(document).ready(function () {
     $("#newTask").submit(handleAddTask())
     renderTaskList()
+    // add sumbit button listener
+    $("#newTask").submit(handleAddTask)
 
-});
+}); 
 
