@@ -22,3 +22,7 @@ body {
 .overdue {
   background-color: red;
 }
+/* UI = User Interface  Z-Index = Z-Axis */
+.ui-draggable-dragging {
+  z-index: 9000;
+}
